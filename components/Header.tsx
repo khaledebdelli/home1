@@ -1,10 +1,13 @@
 import Link from 'next/link'
-import { FaHouseUser } from 'react-icons/fa'
 import { SearchIcon, BellIcon } from '@heroicons/react/outline'
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Profile } from '../typings'
 
-function Header() {
+interface Props {
+    profile: Profile
+}
+
+function Header({ profile }: Props) {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -26,10 +29,10 @@ function Header() {
     <header className={`${isScrolled && 'bg-[#141414]'}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
         {/* <div className="absolute inset-0 bg-[url(/logo.png)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div> */}
-        <Image
+        <img
           src="/logo.png"
-          width={100}
-          height={100}
+          width={25}
+          height={25}
           alt="my home logo"
           className="cursor-pointer object-contain"
         />
@@ -46,8 +49,8 @@ function Header() {
       <div className="flex items-center space-x-4 text-sm font-light">
         <SearchIcon className="hidden h-6 w-6 sm:inline cursor-pointer" />
         <BellIcon className="h-6 w-6 cursor-pointer" />
-        <Link href="/account">
-          <FaHouseUser size={20} className="cursor-pointer" />
+        <Link href="/profile">
+          <img src={profile.avatar_url} width={30} height={30} className="cursor-pointer rounded" />
         </Link>
       </div>
     </header>

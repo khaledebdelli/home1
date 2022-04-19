@@ -4,7 +4,6 @@ import Banner from '../components/Banner'
 import Header from '../components/Header'
 import Row from '../components/Row'
 import { Profile, Repository } from '../typings'
-import defaultOptions from '../utils/defaultOptions'
 import requests from '../utils/requests'
 
 interface Props {
@@ -39,9 +38,7 @@ const Home = ({ profile, repositories }: Props) => {
           />
           <Row
             title="Others"
-            repositories={repositories.filter(
-              (repo) => repo.language === null
-            )}
+            repositories={repositories.filter((repo) => repo.language === null)}
           />
         </section>
         {/* Modal */}
@@ -54,10 +51,18 @@ export default Home
 
 export const getServerSideProps = async () => {
   const [profile, repositories] = await Promise.all([
-    fetch(requests.fetchOwnUserProfile, defaultOptions).then((res) =>
-      res.json()
-    ),
-    fetch(requests.fetchOwnUserRepos, defaultOptions).then((res) => res.json()),
+    fetch(requests.fetchOwnUserProfile, {
+      method: 'GET',
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
+    }).then((res) => res.json()),
+    fetch(requests.fetchOwnUserRepos, {
+      method: 'GET',
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
+    }).then((res) => res.json()),
   ])
 
   return {

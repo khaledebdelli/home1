@@ -2,15 +2,15 @@
   
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { useRef, useState } from 'react'
-import { Project } from '../typings'
+import { Repository } from '../typings'
 import Thumbnail from './Thumbnail'
 
 interface Props {
   title: string
-  projects: Project[]
+  repositories: Repository[]
 }
 
-function Row({ title, projects }: Props) {
+function Row({ title, repositories }: Props) {
   const rowRef = useRef<HTMLDivElement>(null)
   const [isMoved, setIsMoved] = useState(false)
 
@@ -43,8 +43,8 @@ function Row({ title, projects }: Props) {
           className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-2.5 md:p-2"
           ref={rowRef}
         >
-          {projects.map((project) => (
-            <Thumbnail key={project.id} project={project} />
+          {repositories.map((repository) => (
+            <Thumbnail key={repository.id} repository={repository} />
           ))}
         </div>
         <ChevronRightIcon

@@ -26,15 +26,15 @@ const Home = ({ profile, repositories }: Props) => {
         <Banner profile={profile} />
         <section className="space-y-5 md:space-y-20">
           <Row
-            title="JavaScript"
+            title="Repositories"
             repositories={repositories.filter(
-              (repo) => repo.language === 'JavaScript'
+              (repo) => repo.language !== null
             )}
           />
           <Row
-            title="Python"
+            title="Templates"
             repositories={repositories.filter(
-              (repo) => repo.language === 'Python'
+              (repo) => repo.is_template
             )}
           />
           <Row

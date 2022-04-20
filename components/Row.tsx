@@ -11,7 +11,6 @@ interface Props {
 function Row({ title, repositories }: Props) {
   const rowRef = useRef<HTMLDivElement>(null)
   const [isMoved, setIsMoved] = useState(false)
-  const [topRight, setTopRight] = useState(false)
 
   const handleClick = (direction: string) => {
     setIsMoved(true)
@@ -22,7 +21,6 @@ function Row({ title, repositories }: Props) {
         direction === 'left'
           ? scrollLeft - clientWidth
           : scrollLeft + clientWidth
-      if(scrollTo === clientWidth) setTopRight(true)
       rowRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' })
     }
   }

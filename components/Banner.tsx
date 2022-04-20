@@ -30,7 +30,7 @@ function Banner({ profile }: Props) {
           </div>
         </a>
       </div>
-      <p className="max-w-xs md:max-w-lg md:text-lg lg:max-w-2xl">
+      <p className="font-black max-w-xs md:max-w-lg md:text-lg lg:max-w-2xl">
         {!!profile?.bio ? profile.bio : 'NO DESCRIPTION'}
       </p>
     </div>

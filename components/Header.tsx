@@ -31,7 +31,7 @@ function Header({ profile }: Props) {
         {/* <div className="absolute inset-0 bg-[url(/logo.png)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div> */}
         <h1 className="font-bold">EBDELLI <span className="text-amber-600">HOME</span></h1>
         <ul className="hidden space-x-4 md:flex">
-          <li className="headerLink cursor-default font-semibold text-white hover:text-white">
+          <li className="headerLink cursor-default font-semibold text-amber-600 hover:text-amber-600/20">
             Home
           </li>
           <li className="headerLink">Projects</li>

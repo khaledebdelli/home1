@@ -12,7 +12,7 @@ function Banner({ profile }: Props) {
   return (
     <div className="flex flex-col space-y-2 py-14 lg:py-40 md:space-y-4 lg:justify-end lg:pb-12">
       <Image
-        src="/bg-hd.png"
+        src="/bg.jpg"
         layout="fill"
         objectFit="cover"
         className="-z-40 top-0 left-0 w-screen"

@@ -28,19 +28,19 @@ const Home = ({ profile, repositories }: Props) => {
           <Row
             title="JavaScript"
             repositories={repositories.filter(
-              (repo) => repo.language === 'JavaScript'
+              (repo) => repo.language === 'JavaScript' && !!repo.description
             )}
           />
           <Row
             title="Python"
             repositories={repositories.filter(
-              (repo) => repo.language === 'Python'
+              (repo) => repo.language === 'Python' && !!repo.description
             )}
           />
           <Row
             title="Others"
             repositories={repositories.filter(
-              (repo) => repo.language === null
+              (repo) => repo.language === null && !!repo.description
             )}
           />
         </section>

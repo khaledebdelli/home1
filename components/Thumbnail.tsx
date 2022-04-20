@@ -17,9 +17,10 @@ function Thumbnail({ repository }: Props) {
       <div className="overflow-hidden space-y-2 p-5 h-full bg-slate-500 bg-opacity-10">
         <div className="flex w-full space-x-2">
           <img
-            className="rounded object-cover h-10 w-10 relative overflow-hidden"
+            className="rounded object-cover relative overflow-hidden"
             src={repository.owner.avatar_url}
             alt="user avatar"
+            width={50} height={50}
           />
           <p className="truncate text-ellipsis ... w-full text-amber-600 flex justify-between pr-3 font-bold text-sm">
             {repository.name}

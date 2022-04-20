@@ -9,29 +9,32 @@ interface Props {
 function Thumbnail({ repository }: Props) {
   return (
     <div
-      className={`relative min-w-[220px] cursor-pointer overflow-y-hidden transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-105`}
+      className={`relative min-w-[220px] 
+    cursor-pointer overflow-y-hidden 
+    transition duration-200 ease-out 
+    md:h-36 md:min-w-[260px] md:hover:scale-105 md:hover:rotate-2`}
     >
-      <div className="overflow-x-hidden">
-        <div className="rounded overflow-hidden shadow-lg">
-          <div className="px-6 flex space-x-3">
-            <img
-              className="rounded object-cover h-10 w-10"
-              src={repository.owner.avatar_url}
-              alt="user avatar"
-            />
-            <div className="text-amber-700 font-bold text-sm mb-4">
-              <Link href={repository.html_url} passHref={true}>
-                <a className="flex space-x-4" target="_blank" rel="noreferrer">
-                  <p>{repository.name}</p>
-                  <HiOutlineExternalLink color='white' min={15} size={15} />
-                </a>
-              </Link>
-            </div>
-          </div>
-          <p className="text-white-700 text-xs p-2 truncate text-ellipsis ...">
-            {repository.description && repository.description}
+      <div className="overflow-hidden space-y-2 p-5 h-full bg-slate-500 bg-opacity-10">
+        <div className="flex w-full space-x-2">
+          <img
+            className="rounded object-cover h-10 w-10 relative overflow-hidden"
+            src={repository.owner.avatar_url}
+            alt="user avatar"
+          />
+          <p className="truncate text-ellipsis ... w-full text-amber-600 flex justify-between pr-3 font-bold text-sm">
+            {repository.name}
           </p>
+          <a href={repository.html_url} target="_blank" rel="noreferrer">
+            <HiOutlineExternalLink color="white" min={15} size={15} />
+          </a>
         </div>
+        <p className="text-white-700 min-h-fit text-justify text-xs font-semibold pr-2">
+          {repository?.description
+            ? repository?.description.length > 100
+              ? repository?.description.substring(0, 107) + '...'
+              : repository?.description
+            : 'NO DESCRIPTION'}
+        </p>
       </div>
     </div>
   )

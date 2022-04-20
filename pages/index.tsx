@@ -24,7 +24,7 @@ const Home = ({ profile, repositories }: Props) => {
       <Header profile={profile} />
       <main className="relative pb-10 pl-4 md:pb-24 lg:pl-16">
         <Banner profile={profile} />
-        <section className="space-y-10">
+        <section className="space-y-5 md:space-y-20">
           <Row
             title="JavaScript"
             repositories={repositories.filter(

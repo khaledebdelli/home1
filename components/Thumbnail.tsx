@@ -28,12 +28,8 @@ function Thumbnail({ repository }: Props) {
             <HiOutlineExternalLink color="white" min={15} size={15} />
           </a>
         </div>
-        <p className="text-white-700 min-h-fit text-justify text-xs font-semibold pr-2">
-          {repository?.description
-            ? repository?.description.length > 100
-              ? repository?.description.substring(0, 107) + '...'
-              : repository?.description
-            : 'NO DESCRIPTION'}
+        <p className="text-white-700 line-clamp-2 md:line-clamp-3 min-h-fit text-justify text-xs font-semibold pr-2">
+          {repository?.description ?? 'NO DESCRIPTION'}
         </p>
       </div>
     </div>

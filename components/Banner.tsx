@@ -10,30 +10,28 @@ interface Props {
 
 function Banner({ profile }: Props) {
   return (
-    <div className="flex flex-col space-y-2 py-40 md:space-y-4 lg:justify-end lg:pb-12">
-      <div className="absolute top-0 left-0 h-[95vh] w-screen">
-        <Image
-          src="/bg3.avif"
-          layout="fill"
-          objectFit="cover"
-          className="-z-40"
-        />
-      </div>
-      <div className="z-50 flex space-x-2 items-center">
+    <div className="flex flex-col space-y-2 py-14 lg:py-40 md:space-y-4 lg:justify-end lg:pb-12">
+      <Image
+        src="/bg3.avif"
+        layout="fill"
+        objectFit="cover"
+        className="-z-40 top-0 left-0 w-screen"
+      />
+      <div className="flex space-x-2 items-center">
         <FiTwitter size={50} />
-        <Link
+        <a
           href={`https://twitter.com/${profile.twitter_username}`}
-          passHref={true}
+          target="_blank"
+          rel="noreferrer"
+          className='z-40'
         >
-          <a target="_blank" rel="noreferrer">
-            <div className="cursor-pointer text-2xl font-bold md:text-4xl lg:text-5xl text-amber-600">
-              @{profile.twitter_username}
-            </div>
-          </a>
-        </Link>
+          <div className="cursor-pointer text-2xl font-bold md:text-4xl lg:text-5xl text-amber-600 hover:text-amber-800">
+            @{profile.twitter_username}
+          </div>
+        </a>
       </div>
       <p className="max-w-xs md:max-w-lg md:text-lg lg:max-w-2xl">
-        {profile.bio}
+        {!!profile?.bio ? profile.bio : 'NO DESCRIPTION'}
       </p>
     </div>
   )

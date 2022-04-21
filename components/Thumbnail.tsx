@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { HiOutlineExternalLink } from 'react-icons/hi'
 import { Repository } from '../typings'
+import Badges from './Badges/Badges'
 
 interface Props {
   repository: Repository
@@ -20,7 +21,8 @@ function Thumbnail({ repository }: Props) {
             className="rounded object-cover relative overflow-hidden"
             src={repository.owner.avatar_url}
             alt="user avatar"
-            width={50} height={50}
+            width={50}
+            height={50}
           />
           <p className="truncate text-ellipsis ... w-full text-amber-400 flex justify-between pr-3 font-bold font-mono text-sm">
             {repository.name}
@@ -29,8 +31,9 @@ function Thumbnail({ repository }: Props) {
             <HiOutlineExternalLink color="white" min={15} size={15} />
           </a>
         </div>
-        <p className="text-white-700 line-clamp-2 md:line-clamp-3 min-h-fit text-justify text-xs font-mono pr-2">
-          {repository?.description ?? 'NO DESCRIPTION'}
+        <p className="text-white-700 flex space-y-2 line-clamp-3 md:line-clamp-4 min-h-fit text-justify text-xs font-mono pr-2">
+          <div>{repository?.description ?? 'NO DESCRIPTION'}</div>
+          <Badges name={repository.name} />
         </p>
       </div>
     </div>

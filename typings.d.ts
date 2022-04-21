@@ -1,3 +1,5 @@
+import { Topic } from "./components/Badges"
+
 export interface Profile {
   login: string
   id: number
@@ -105,7 +107,7 @@ export interface Repository {
   license?: string
   allow_forking: boolean
   is_template: boolean
-  topics: string[]
+  topics: Topic[]
   visibility: string
   forks: number
   open_issues: number

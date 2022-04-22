@@ -24,7 +24,7 @@ const Badges = ({ name }: BadgesProps) => {
   }, [])
 
   return (
-    <div className="space-x-1 w-full flex">
+    <div className="space-x-1 flex flex-wrap gap-1">
       {topics && topics.map((topic) => <Badge topic={topic} />)}
     </div>
   )

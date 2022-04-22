@@ -10,12 +10,13 @@ interface Props {
 function Thumbnail({ repository }: Props) {
   return (
     <div
-      className={`relative min-w-[220px] 
+      className={`relative
     cursor-pointer overflow-y-hidden 
-    transition duration-200 ease-out 
-    md:h-36 md:min-w-[260px] md:max-w-[300px] md:hover:scale-105 md:hover:rotate-2`}
+    transition duration-200 ease-out
+    bg-slate-500 bg-opacity-10
+    h-44 min-w-[260px] max-w-[300px] md:hover:scale-105 md:hover:rotate-2`}
     >
-      <div className="overflow-hidden space-y-2 p-5 h-full bg-slate-500 bg-opacity-10">
+      <div className="overflow-hidden space-y-2 p-5 h-full">
         <div className="flex w-full space-x-2">
           <img
             className="rounded object-cover relative overflow-hidden"
@@ -32,9 +33,9 @@ function Thumbnail({ repository }: Props) {
           </a>
         </div>
         <p className="text-white-700 flex space-y-2 line-clamp-3 md:line-clamp-4 min-h-fit text-justify text-xs font-mono pr-2">
-          <div>{repository?.description ?? 'NO DESCRIPTION'}</div>
-          <Badges name={repository.name} />
+          {repository?.description ?? 'NO DESCRIPTION'}
         </p>
+        <div><Badges name={repository.name} /></div>
       </div>
     </div>
   )

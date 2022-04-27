@@ -22,6 +22,5 @@ export default async function handler(
     requests.fetchRepoTopics(<string>name),
     defaultOptions
   ).then((res) => res.json())
-  console.log(name);
   res.status(200).json({ topics: names })
 }

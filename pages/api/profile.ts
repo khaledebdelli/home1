@@ -22,7 +22,6 @@ export default async function handler(
     requests.fetchOwnUserProfile,
     defaultOptions
   ).then((res) => res.json())
-  console.log(profile);
   
   res.status(200).json({ profile })
 }

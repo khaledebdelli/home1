@@ -14,7 +14,7 @@ const Badges = ({ repository }: BadgesProps) => {
   if (!data) return <div>Loading...</div>
   return (
     <div className="space-x-1 flex flex-wrap gap-1">
-      {data?.topics && data.topics.map((topic: Topic) => <Badge topic={topic} />)}
+      {data?.topics && data.topics.map((topic: Topic) => <Badge key={topic} topic={topic} />)}
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import React from 'react'
 
 function Login() {
@@ -11,9 +12,9 @@ function Login() {
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
-          <a className="text-blue-700" href="/">
-            Login
-          </a>
+          <Link href="/" passHref>
+            <a className="text-blue-700">Login</a>
+          </Link>
         </h1>
       </main>
     </div>

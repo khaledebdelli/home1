@@ -2,7 +2,7 @@ import { FiTwitter } from 'react-icons/fi'
 import { Profile } from '../typings'
 
 interface Props {
-  profile: Profile
+  profile?: Profile
 }
 
 function Banner({ profile }: Props) {
@@ -11,13 +11,13 @@ function Banner({ profile }: Props) {
       <div className="flex space-x-2 items-center">
         <FiTwitter size={50} />
         <a
-          href={`https://twitter.com/${profile.twitter_username}`}
+          href={`https://twitter.com/${profile?.twitter_username}`}
           target="_blank"
           rel="noreferrer"
           className='z-40'
         >
           <div className="cursor-pointer text-2xl font-bold md:text-4xl lg:text-5xl text-amber-600 hover:text-amber-800">
-            @{profile.twitter_username}
+            @{profile?.twitter_username}
           </div>
         </a>
       </div>

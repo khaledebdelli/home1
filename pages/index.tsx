@@ -1,11 +1,8 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
 import Row from '../components/Row'
 import { Profile, Repository } from '../typings'
-import defaultOptions from '../utils/defaultOptions'
-import requests from '../utils/requests'
 
 interface Props {
   profile: Profile
@@ -28,19 +25,17 @@ const Home = ({ profile, repositories }: Props) => {
           <Row
             title="Repositories"
             repositories={repositories.filter(
-              (repo) => repo.language !== null
+              (repo: any) => repo.language !== null
             )}
           />
           <Row
             title="Templates"
-            repositories={repositories.filter(
-              (repo) => repo.is_template
-            )}
+            repositories={repositories.filter((repo: any) => repo.is_template)}
           />
           <Row
             title="Others"
             repositories={repositories.filter(
-              (repo) => repo.language === null
+              (repo: any) => repo.language === null
             )}
           />
         </section>
@@ -53,11 +48,10 @@ const Home = ({ profile, repositories }: Props) => {
 export default Home
 
 export const getServerSideProps = async () => {
-  const [profile, repositories] = await Promise.all([
-    fetch(requests.fetchOwnUserProfile, defaultOptions).then((res) =>
-      res.json()
-    ),
-    fetch(requests.fetchOwnUserRepos, defaultOptions).then((res) => res.json()),
+  const BASE_URL = 'http://localhost:3000'
+  const [{ profile }, { repositories }] = await Promise.all([
+    fetch(BASE_URL + '/api/profile').then((res) => res.json()),
+    fetch(BASE_URL + '/api/repositories').then((res) => res.json()),
   ])
 
   return {

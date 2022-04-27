@@ -1,31 +1,20 @@
-import { useEffect, useState } from 'react'
+import useSWR from 'swr'
 import { Topic } from '.'
-import defaultOptions from '../../utils/defaultOptions'
-import requests from '../../utils/requests'
+import { Repository } from '../../typings'
+import fetcher from '../../utils/fetcher'
 import { Badge } from './Badge'
 
 export interface BadgesProps {
-  name: string
+  repository: Repository
 }
 
-const Badges = ({ name }: BadgesProps) => {
-  const [topics, setTopics] = useState(['nodejs'])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const { names } = await fetch(
-        requests.fetchRepoTopics(name),
-        defaultOptions
-      ).then((res) => res.json())
-      setTopics(names)
-      console.log(names)
-    }
-    fetchData()
-  }, [])
-
+const Badges = ({ repository }: BadgesProps) => {
+  const { data, error } = useSWR(() => `/api/repo-topics/?name=${repository.name}`, fetcher)
+  if (error) return <div>{error.message}</div>
+  if (!data) return <div>Loading...</div>
   return (
     <div className="space-x-1 flex flex-wrap gap-1">
-      {topics && topics.map((topic) => <Badge topic={topic} />)}
+      {data?.topics && data.topics.map((topic: Topic) => <Badge topic={topic} />)}
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Profile } from '../typings'
 
 interface Props {
-    profile: Profile
+    profile?: Profile
 }
 
 function Header({ profile }: Props) {
@@ -44,7 +44,7 @@ function Header({ profile }: Props) {
         <SearchIcon className="hidden h-6 w-6 sm:inline cursor-pointer" />
         <BellIcon className="h-6 w-6 cursor-pointer" />
         <Link href="/profile">
-          <img src={profile.avatar_url} width={30} height={30} className="cursor-pointer rounded" />
+          <img src={profile?.avatar_url} width={30} height={30} className="cursor-pointer rounded" />
         </Link>
       </div>
     </header>

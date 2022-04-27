@@ -35,7 +35,7 @@ function Thumbnail({ repository }: Props) {
         <p className="text-white-700 flex space-y-2 line-clamp-3 md:line-clamp-4 min-h-fit text-justify text-xs font-mono pr-2">
           {repository?.description ?? 'NO DESCRIPTION'}
         </p>
-        <div><Badges name={repository.name} /></div>
+        <div><Badges repository={repository} /></div>
       </div>
     </div>
   )

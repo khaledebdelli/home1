@@ -41,7 +41,7 @@ function Row({ title, repositories }: Props) {
           className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-2.5 md:p-2"
           ref={rowRef}
         >
-          {repositories.map((repository) => (
+          {repositories?.map((repository) => (
             <Thumbnail key={repository.id} repository={repository} />
           ))}
         </div>

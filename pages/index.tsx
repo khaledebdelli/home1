@@ -48,7 +48,7 @@ const Home = ({ profile, repositories }: Props) => {
 export default Home
 
 export const getServerSideProps = async () => {
-  const BASE_URL = process.env.NODE_ENV === 'production' ? process.env.BASE_URL_PRODUCTION : 'http://localhost:3000'
+  const BASE_URL = process.env.NODE_ENV !== 'development' ? 'https://home1-khaledebdelli.vercel.app' : 'http://localhost:3000'
   const [{ profile }, { repositories }] = await Promise.all([
     fetch(BASE_URL + '/api/profile').then((res) => res.json()),
     fetch(BASE_URL + '/api/repositories').then((res) => res.json()),

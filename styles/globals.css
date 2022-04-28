@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23e8ab2a' fill-opacity='0.4'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask4061%26quot%3b)' fill='none'%3e%3crect width='1920' height='1080' x='0' y='0' fill='url(%23SvgjsLinearGradient4062)'%3e%3c/rect%3e%3cpath d='M108 1080L1188 0L1701 0L621 1080z' fill='url(%23SvgjsLinearGradient4063)'%3e%3c/path%3e%3cpath d='M656.6 1080L1736.6 0L2365.1 0L1285.1 1080z' fill='url(%23SvgjsLinearGradient4063)'%3e%3c/path%3e%3cpath d='M1886 1080L806 0L614 0L1694 1080z' fill='url(%23SvgjsLinearGradient4064)'%3e%3c/path%3e%3cpath d='M1198.4 1080L118.40000000000009 0L-726.0999999999999 0L353.9000000000001 1080z' fill='url(%23SvgjsLinearGradient4064)'%3e%3c/path%3e%3cpath d='M1102.8130791671415 1080L1920 262.8130791671415L1920 1080z' fill='url(%23SvgjsLinearGradient4063)'%3e%3c/path%3e%3cpath d='M0 1080L817.1869208328585 1080L 0 262.8130791671415z' fill='url(%23SvgjsLinearGradient4064)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask4061'%3e%3crect width='1920' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='89.06%25' y1='119.44%25' x2='10.94%25' y2='-19.44%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient4062'%3e%3cstop stop-color='%230e2a47' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(87%2c 77%2c 57%2c 1)' offset='0.68'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient4063'%3e%3cstop stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient4064'%3e%3cstop stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
 }
 
 @layer base {
@@ -13,7 +13,6 @@ body {
   header {
     @apply fixed top-0 z-50 flex w-full items-center justify-between px-4 py-4 transition-all lg:px-10 lg:py-6;
   }
-
 }
 
 @layer components {

@@ -53,7 +53,6 @@ export const getServerSideProps = async () => {
     fetch(BASE_URL + '/api/profile').then((res) => res.json()),
     fetch(BASE_URL + '/api/repositories').then((res) => res.json()),
   ])
-
   return {
     props: {
       profile,

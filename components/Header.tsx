@@ -3,14 +3,18 @@ import { SearchIcon, BellIcon } from '@heroicons/react/outline'
 import { useEffect, useState } from 'react'
 import { Profile } from '../typings'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
+import useAuth from '../hooks/useAuth'
 
 interface Props {
   profile?: Profile
 }
 
 function Header({ profile }: Props) {
+  const router = useRouter()
   const [isScrolled, setIsScrolled] = useState(false)
-
+  const [activeLink, setActiveLink] = useState(router.pathname)
+  const { logout } = useAuth()
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -34,29 +38,50 @@ function Header({ profile }: Props) {
           EBDELLI <span className="text-amber-600">HOME</span>
         </h1>
         <ul className="hidden space-x-4 md:flex">
-          <li className="headerLink cursor-default font-semibold text-amber-600 hover:text-amber-600/20">
-            Home
+          <li
+            onClick={() => setActiveLink('homepage')}
+            className={`headerLink ${activeLink === '/' && 'activeLink'}`}
+          >
+            <Link href="/">Home</Link>
           </li>
-          <li className="headerLink">Projects</li>
-          <li className="headerLink">Calander</li>
-          <li className="headerLink">About</li>
-          <li className="headerLink">Help</li>
+          <li
+            className={`headerLink ${
+              activeLink === '/projects' && 'activeLink'
+            }`}
+          >
+            <Link href="/projects">Projects</Link>
+          </li>
+          <li
+            className={`headerLink ${
+              activeLink === '/calander' && 'activeLink'
+            }`}
+          >
+            Calander
+          </li>
+          <li
+            className={`headerLink ${activeLink === '/about' && 'activeLink'}`}
+          >
+            About
+          </li>
+          <li
+            className={`headerLink ${activeLink === '/help' && 'activeLink'}`}
+          >
+            Help
+          </li>
         </ul>
       </div>
       <div className="flex items-center space-x-4 text-sm font-light">
-        <SearchIcon className="hidden h-6 w-6 sm:inline cursor-pointer" />
+        <SearchIcon className="hidden h-6 w-6 cursor-pointer sm:inline" />
         <BellIcon className="h-6 w-6 cursor-pointer" />
-        <Link href="/profile" passHref>
-          <a>
-            <Image
-              src={profile?.avatar_url || ''}
-              width={30}
-              height={30}
-              alt=""
-              className="cursor-pointer rounded"
-            />
-          </a>
-        </Link>
+        <a className='ml-5' onClick={logout}>
+          <Image
+            src={profile?.avatar_url ?? '/avatar.jpg'}
+            width={30}
+            height={30}
+            alt=""
+            className="cursor-pointer rounded"
+          />
+        </a>
       </div>
     </header>
   )

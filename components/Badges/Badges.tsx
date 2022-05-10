@@ -1,7 +1,5 @@
-import useSWR from 'swr'
 import { Topic } from '.'
 import { Repository } from '../../typings'
-import fetcher from '../../utils/fetcher'
 import { Badge } from './Badge'
 
 export interface BadgesProps {

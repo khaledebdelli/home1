@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { HiOutlineExternalLink } from 'react-icons/hi'
 import { Repository } from '../typings'
 import Badges from './Badges/Badges'
@@ -21,7 +20,7 @@ function Thumbnail({ repository }: Props) {
         <div className="flex w-full space-x-2">
           <Image
             className="rounded object-cover relative overflow-hidden"
-            src={repository.owner.avatar_url}
+            src={repository?.owner?.avatar_url ?? ''}
             alt="user avatar"
             width={50}
             height={50}

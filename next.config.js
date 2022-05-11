@@ -1,7 +1,9 @@
 const withPWA = require("next-pwa");
+const withTM = require('next-transpile-modules')([
+  '@stripe/firestore-stripe-payments',
+]) // pass the modules you would like to see transpiled
 
-
-module.exports = withPWA({
+module.exports = withTM(withPWA({
   reactStrictMode: true,
   images: {
     domains: ['rb.gy', 'avatars.githubusercontent.com'],
@@ -12,4 +14,4 @@ module.exports = withPWA({
     skipWaiting: true,
     disable: process.env.NODE_ENV === "development",
   },
-})
+}))

@@ -1,14 +1,15 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { useRef, useState } from 'react'
-import { Repository } from '../typings'
+import { Gist, Repository } from '../typings'
 import Thumbnail from './Thumbnail'
 
 interface Props {
   title: string
-  repositories: Repository[]
+  repositories?: Repository[]
+  gists?: Gist[]
 }
 
-function Row({ title, repositories }: Props) {
+function Row({ title, repositories, gists }: Props) {
   const rowRef = useRef<HTMLDivElement>(null)
   const [isMoved, setIsMoved] = useState(false)
 
@@ -43,6 +44,9 @@ function Row({ title, repositories }: Props) {
         >
           {repositories?.map((repository) => (
             <Thumbnail key={repository.id} repository={repository} />
+          ))}
+           {gists?.map((gist) => (
+            <Thumbnail key={gist.id} gist={gist} />
           ))}
         </div>
         <ChevronRightIcon

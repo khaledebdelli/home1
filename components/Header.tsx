@@ -53,6 +53,13 @@ function Header({ profile }: Props) {
           </li>
           <li
             className={`headerLink ${
+              activeLink === '/gists' && 'activeLink'
+            }`}
+          >
+            <Link href="/gists">Gists</Link>
+          </li>
+          <li
+            className={`headerLink ${
               activeLink === '/calander' && 'activeLink'
             }`}
           >

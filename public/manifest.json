@@ -1,0 +1,32 @@
+{
+    "theme_color": "#d9782a",
+    "background_color": "#c8854e",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Ebdelli Khaled",
+    "short_name": "EBK",
+    "description": "Full Stack Developer with 4  years of hands-on experience designing, developing, and implementing applications and solutions using a range of technologies",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

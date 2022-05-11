@@ -1,4 +1,4 @@
-import { Topic } from "./components/Badges"
+import { Topic } from './components/Badges'
 
 export interface Profile {
   login: string
@@ -120,4 +120,34 @@ export interface Repository {
     triage: boolean
     pull: boolean
   }
+}
+
+export interface Gist {
+  id: number
+  files: {
+    [key: string]: {
+      filename: string
+      type: string
+      language: string
+      raw_url: string
+      size: number
+    }
+  }
+  node_id: string
+  name: string
+  full_name: string
+  owner: Profile
+  forks_url: string
+  html_url: string
+  git_pull_url: string
+  git_push_url: string
+  description: string
+  url: string
+  commits_url: string
+  comments_url: string
+  created_at: Date
+  updated_at: Date
+  language: string
+  public: string
+  truncated: boolean
 }

@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Banner from '../components/Banner'
 import Header from '../components/Header'
 import Row from '../components/Row'
 import { Profile, Repository } from '../typings'
@@ -9,7 +8,7 @@ interface Props {
   repositories: Repository[]
 }
 
-const Home = ({ profile, repositories }: Props) => {
+const Projects = ({ profile, repositories }: Props) => {
   return (
     <div className="relative">
       <Head>
@@ -19,8 +18,7 @@ const Home = ({ profile, repositories }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header profile={profile} />
-      <main className="relative pb-10 pl-4 md:pb-24 lg:pl-16">
-        <Banner profile={profile} />
+      <main className="relative pb-10 pl-4 pt-32 md:pb-24 lg:pl-16">
         {repositories.length > 0 && (
           <section className="space-y-14 md:space-y-20">
             <Row
@@ -49,7 +47,7 @@ const Home = ({ profile, repositories }: Props) => {
   )
 }
 
-export default Home
+export default Projects
 
 export const getServerSideProps = async () => {
   const BASE_URL =

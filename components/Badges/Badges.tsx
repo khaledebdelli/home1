@@ -3,7 +3,7 @@ import { Repository } from '../../typings'
 import { Badge } from './Badge'
 
 export interface BadgesProps {
-  repository: Repository
+  repository?: Repository
 }
 
 const Badges = ({ repository }: BadgesProps) => {

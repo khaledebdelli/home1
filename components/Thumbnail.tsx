@@ -38,7 +38,7 @@ function Thumbnail({ repository, gist, height = 44 }: Props) {
             <HiOutlineExternalLink color="white" min={15} size={15} />
           </a>
         </div>
-        <p className="text-white-700 flex min-h-fit space-y-2 pr-2 text-justify font-mono text-xs line-clamp-3 md:line-clamp-4">
+        <p className="text-white-700 border-y-black flex min-h-fit space-y-2 pr-2 text-justify font-mono text-xs line-clamp-3 md:line-clamp-4">
           {repository?.description ?? gist?.description ?? 'NO DESCRIPTION'}
         </p>
         {repository && <Badges repository={repository} />}

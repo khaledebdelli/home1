@@ -10,7 +10,7 @@ interface Inputs {
 }
 
 function Login() {
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(true)
   const { signIn, signUp } = useAuth()
 
   const {
@@ -41,7 +41,7 @@ function Login() {
         objectFit="cover"
         alt=""
       />
-      <h1 className="font-bold absolute left-4 top-4 cursor-pointer object-contain md:left-10 md:top-6">
+      <h1 className="absolute left-4 top-4 cursor-pointer object-contain font-bold md:left-10 md:top-6">
         EBDELLI <span className="text-amber-600">HOME</span>
       </h1>
       {/* <Image
@@ -56,7 +56,14 @@ function Login() {
         className="relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:my-14 md:mt-0 md:max-w-md md:px-14"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="text-4xl font-semibold">Sign In</h1>
+        <h1 className="text-4xl font-semibold">
+          Sign{' '}
+          {login ? (
+            <span className="text-amber-600">In</span>
+          ) : (
+            <span className="text-amber-600">Up</span>
+          )}
+        </h1>
         <div className="space-y-4">
           <label className="inline-block w-full">
             <input
@@ -94,16 +101,16 @@ function Login() {
           onClick={() => setLogin(true)}
           type="submit"
         >
-          Sign In
+          Sign  {login ? 'In' : 'Up'}
         </button>
         <div className="text-[gray]">
-          New to Ebdelli Home ?{' '}
+          {login ? 'New to Ebdelli Home ?' : 'Already have an account'} {' '}
           <button
             className="cursor-pointer text-white hover:underline"
             onClick={() => setLogin(false)}
             type="submit"
           >
-            Sign up now
+            Sign {login ? 'Up' : 'In'} now
           </button>
         </div>
       </form>

@@ -1,21 +1,32 @@
+import { DocumentData } from 'firebase/firestore'
 import Image from 'next/image'
 import { HiOutlineExternalLink } from 'react-icons/hi'
+import { useRecoilState } from 'recoil'
+import { modalState, repositoryState } from '../atoms/modalAtom'
 import { Gist, Repository } from '../typings'
 import Badges from './Badges/Badges'
 import GistFiles from './GistFiles'
 
 interface Props {
-  repository?: Repository
-  gist?: Gist
+  repository?: Repository | DocumentData | null
+  gist?: Gist | DocumentData | null
   height?: number
 }
 
 function Thumbnail({ repository, gist, height = 44 }: Props) {
+  const [currentRepository, setCurrentRepository] = useRecoilState(repositoryState)
+  const [showModal, setShowModal] = useRecoilState(modalState)
   return (
     <div
       className={`relative h-44 min-w-[260px] max-w-[300px]
     bg-slate-500 bg-opacity-10
     transition duration-200 ease-out md:hover:scale-105`}
+      onClick={() => {
+        if (repository) {
+          setCurrentRepository(repository)
+          setShowModal(true)
+        }
+      }}
     >
       <div className="h-full space-y-2 overflow-hidden p-5">
         <div className="flex w-full space-x-2">
@@ -38,7 +49,7 @@ function Thumbnail({ repository, gist, height = 44 }: Props) {
             <HiOutlineExternalLink color="white" min={15} size={15} />
           </a>
         </div>
-        <p className="text-white-700 border-y-black flex min-h-fit space-y-2 pr-2 text-justify font-mono text-xs line-clamp-3 md:line-clamp-4">
+        <p className="text-white-700 flex min-h-fit space-y-2 border-y-black pr-2 text-justify font-mono text-xs line-clamp-3 md:line-clamp-4">
           {repository?.description ?? gist?.description ?? 'NO DESCRIPTION'}
         </p>
         {repository && <Badges repository={repository} />}

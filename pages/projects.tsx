@@ -1,7 +1,11 @@
 import Head from 'next/head'
 import Header from '../components/Header'
 import Row from '../components/Row'
+import Modal from '../components/Modal'
 import { Profile, Repository } from '../typings'
+import useAuth from '../hooks/useAuth'
+import { useRecoilValue } from 'recoil'
+import { modalState, repositoryState } from '../atoms/modalAtom'
 
 interface Props {
   profile: Profile
@@ -9,8 +13,10 @@ interface Props {
 }
 
 const Projects = ({ profile, repositories }: Props) => {
+  const showModal = useRecoilValue(modalState)
+  const repository = useRecoilValue(repositoryState)
   return (
-    <div className="relative">
+    <div className={`relative ${showModal && '!h-screen overflow-hidden'}`}>
       <Head>
         <title>
           {profile?.name || profile?.login || 'Home'} - GITHUB PROJECTS
@@ -41,7 +47,7 @@ const Projects = ({ profile, repositories }: Props) => {
             />
           </section>
         )}
-        {/* Modal */}
+        {showModal && <Modal />}
       </main>
     </div>
   )

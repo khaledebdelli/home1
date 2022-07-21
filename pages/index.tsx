@@ -1,13 +1,15 @@
 import Head from 'next/head'
 import Header from '../components/Header'
 import Banner from '../components/Banner'
-import { Gist, Profile } from '../typings'
+import { Profile } from '../typings'
 
 interface Props {
   profile: Profile
 }
 
 const Home = ({ profile }: Props) => {
+
+
   return (
     <div className="relative">
       <Head>
@@ -17,7 +19,6 @@ const Home = ({ profile }: Props) => {
       <Header profile={profile} />
       <main className="relative pb-10 pt-20 pl-4 md:pb-24 lg:pl-16">
         <Banner profile={profile} />
-        {/* Modal */}
       </main>
     </div>
   )

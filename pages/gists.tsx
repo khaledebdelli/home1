@@ -21,11 +21,11 @@ const Gists = ({ profile, publicGists, starredGists }: Props) => {
       <Header profile={profile} />
       <main className="relative pb-10 pt-32 pl-4 md:pb-24 lg:pl-16">
         <section className="space-y-14 md:space-y-20">
-          {publicGists.length > 0 && (
-            <Row title="Public Gists" gists={publicGists} />
-          )}
           {starredGists.length > 0 && (
             <Row title="Starred Gists" gists={starredGists} />
+          )}
+          {publicGists.length > 0 && (
+            <Row title="Public Gists" gists={publicGists} />
           )}
         </section>
         {/* Modal */}

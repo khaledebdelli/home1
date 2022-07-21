@@ -31,7 +31,7 @@ function Header({ profile }: Props) {
     }
   }, [])
   return (
-    <header className={`${isScrolled && 'bg-[#141414] bg-opacity-70'}`}>
+    <header className={`${isScrolled && 'bg-black bg-opacity-70'}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
         {/* <div className="absolute inset-0 bg-[url(/logo.png)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div> */}
         <h1 className="font-bold">

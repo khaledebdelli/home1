@@ -1,8 +1,9 @@
 import { DocumentReportIcon } from '@heroicons/react/outline'
+import { DocumentData } from 'firebase/firestore'
 import { Gist } from '../typings'
 
 export interface BadgesProps {
-  gist?: Gist
+  gist?: Gist | DocumentData | null
 }
 
 const GistFiles = ({ gist }: BadgesProps) => {

@@ -1,9 +1,10 @@
+import { DocumentData } from 'firebase/firestore'
 import { Topic } from '.'
 import { Repository } from '../../typings'
 import { Badge } from './Badge'
 
 export interface BadgesProps {
-  repository?: Repository
+  repository?: Repository | DocumentData | null
 }
 
 const Badges = ({ repository }: BadgesProps) => {

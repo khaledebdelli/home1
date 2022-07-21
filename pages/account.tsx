@@ -7,7 +7,7 @@ import { useState } from 'react'
 import Membership from '../components/Membership'
 import useAuth from '../hooks/useAuth'
 import useSubscription from '../hooks/useSubscription'
-import payments, { goToBillingPortal } from '../lib/stripe'
+// import payments, { goToBillingPortal } from '../lib/stripe'
 
 interface Props {
   products: Product[]
@@ -71,7 +71,6 @@ function Account({ products }: Props) {
           </div>
           <p
             className="cursor-pointer text-blue-500 hover:underline md:text-right"
-            onClick={goToBillingPortal}
           >
             Change plan
           </p>
@@ -93,17 +92,17 @@ function Account({ products }: Props) {
 
 export default Account
 
-export const getStaticProps: GetStaticProps = async () => {
-  const products = await getProducts(payments, {
-    includePrices: true,
-    activeOnly: true,
-  })
-    .then((res: any) => res)
-    .catch((error: { message: any }) => console.log(error.message))
+// export const getStaticProps: GetStaticProps = async () => {
+//   const products = await getProducts(payments, {
+//     includePrices: true,
+//     activeOnly: true,
+//   })
+//     .then((res: any) => res)
+//     .catch((error: { message: any }) => console.log(error.message))
 
-  return {
-    props: {
-      products,
-    },
-  }
-}
+//   return {
+//     props: {
+//       products,
+//     },
+//   }
+// }

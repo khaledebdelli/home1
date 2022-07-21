@@ -18,7 +18,7 @@ import {
   setDoc,
 } from 'firebase/firestore'
 import { db } from '../firebase'
-import useAuth from '../hooks/useAuth'
+// import useAuth from '../hooks/useAuth'
 import toast, { Toaster } from 'react-hot-toast'
 import Badges from './Badges/Badges'
 
@@ -26,7 +26,7 @@ function Modal() {
   const [repository, setRepository] = useRecoilState(repositoryState)
   const [addedToList, setAddedToList] = useState<boolean>()
   const [showModal, setShowModal] = useRecoilState(modalState)
-  const { user } = useAuth()
+  // const { user } = useAuth()
   const [repositories, setRepositories] = useState<
     DocumentData[] | Repository[]
   >([])
@@ -47,15 +47,15 @@ function Modal() {
     toast.dismiss()
   }
 
-  // Find all the movies in the user's list
-  useEffect(() => {
-    if (user) {
-      return onSnapshot(
-        collection(db, 'customers', user.uid, 'myList'),
-        (snapshot) => setRepositories(snapshot.docs)
-      )
-    }
-  }, [repository?.id, user])
+  // Find all the repos in the user's list
+  // useEffect(() => {
+  //   if (user) {
+  //     return onSnapshot(
+  //       collection(db, 'customers', user.uid, 'myList'),
+  //       (snapshot) => setRepositories(snapshot.docs)
+  //     )
+  //   }
+  // }, [repository?.id, user])
 
   // Check if the movie is already in the user's list
   useEffect(
@@ -68,40 +68,40 @@ function Modal() {
     [repositories, repository?.id]
   )
 
-  const handleList = async () => {
-    if (addedToList) {
-      await deleteDoc(
-        doc(db, 'customers', user!.uid, 'myList', repository?.id.toString()!)
-      )
+  // const handleList = async () => {
+  //   if (addedToList) {
+  //     await deleteDoc(
+  //       doc(db, 'customers', user!.uid, 'myList', repository?.id.toString()!)
+  //     )
 
-      toast(
-        `${
-          repository?.full_name || repository?.name
-        } has been removed from My List`,
-        {
-          duration: 8000,
-          style: toastStyle,
-        }
-      )
-    } else {
-      await setDoc(
-        doc(db, 'customers', user!.uid, 'myList', repository?.id.toString()!),
-        {
-          ...repository,
-        }
-      )
+  //     toast(
+  //       `${
+  //         repository?.full_name || repository?.name
+  //       } has been removed from My List`,
+  //       {
+  //         duration: 8000,
+  //         style: toastStyle,
+  //       }
+  //     )
+  //   } else {
+  //     await setDoc(
+  //       doc(db, 'customers', user!.uid, 'myList', repository?.id.toString()!),
+  //       {
+  //         ...repository,
+  //       }
+  //     )
 
-      toast(
-        `${
-          repository?.full_name || repository?.name
-        } has been added to My List.`,
-        {
-          duration: 8000,
-          style: toastStyle,
-        }
-      )
-    }
-  }
+  //     toast(
+  //       `${
+  //         repository?.full_name || repository?.name
+  //       } has been added to My List.`,
+  //       {
+  //         duration: 8000,
+  //         style: toastStyle,
+  //       }
+  //     )
+  //   }
+  // }
 
   return (
     <MuiModal
@@ -121,7 +121,7 @@ function Modal() {
         <div className="relative pt-[20%]">
           <div className="absolute bottom-10 flex w-full items-center justify-between px-10">
             <div className="flex space-x-2">
-              <button className="modalButton" onClick={handleList}>
+              <button className="modalButton">
                 {addedToList ? (
                   <CheckIcon className="h-7 w-7" />
                 ) : (

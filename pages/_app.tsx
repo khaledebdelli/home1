@@ -1,7 +1,7 @@
 import { RecoilRoot } from 'recoil'
 import { AppProps } from 'next/app'
 import { AnimatePresence, motion } from 'framer-motion'
-import { AuthProvider } from '../hooks/useAuth'
+// import { AuthProvider } from '../hooks/useAuth'
 import '../styles/globals.css'
 
 const variants = {
@@ -13,8 +13,7 @@ const variants = {
 function App({ Component, pageProps, router }: AppProps) {
   return (
     <RecoilRoot>
-      <AuthProvider>
-        <AnimatePresence exitBeforeEnter>
+       <AnimatePresence exitBeforeEnter>
           <motion.div
             key={router.route}
             variants={variants} // Pass the variant object into Framer Motion
@@ -26,7 +25,6 @@ function App({ Component, pageProps, router }: AppProps) {
             <Component {...pageProps} />
           </motion.div>
         </AnimatePresence>
-      </AuthProvider>
     </RecoilRoot>
   )
 }

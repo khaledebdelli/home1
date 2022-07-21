@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import Row from '../components/Row'
 import Modal from '../components/Modal'
 import { Profile, Repository } from '../typings'
-import useAuth from '../hooks/useAuth'
+// import useAuth from '../hooks/useAuth'
 import { useRecoilValue } from 'recoil'
 import { modalState, repositoryState } from '../atoms/modalAtom'
 

@@ -12,6 +12,9 @@ import {
   SWCBadge,
   TailWindCSSBadge,
   TypeScriptBadge,
+  ReactJSBadge,
+  ReactQueryBadge,
+  JWTBadge,
 } from '.'
 
 export const Badge = ({ topic }: BadgeProps) => {
@@ -40,6 +43,12 @@ export const Badge = ({ topic }: BadgeProps) => {
       return <NextJSBadge />
     case 'tailwindcss':
       return <TailWindCSSBadge />
+    case 'reactjs':
+      return <ReactJSBadge />
+    case 'react-query':
+      return <ReactQueryBadge />
+    case 'jwt':
+      return <JWTBadge />
 
     default:
       return null

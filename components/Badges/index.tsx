@@ -61,6 +61,25 @@ export const TailWindCSSBadge = () => (
     TailwindCSS
   </span>
 )
+
+export const ReactJSBadge = () => (
+  <span className="bg-slate-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-900">
+    ReactJS
+  </span>
+)
+
+export const ReactQueryBadge = () => (
+  <span className="bg-slate-100 text-orange-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-orange-200 dark:text-orange-900">
+    ReactQuery
+  </span>
+)
+
+export const JWTBadge = () => (
+  <span className="bg-slate-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
+    JWT
+  </span>
+)
+
 export type Topic =
   | 'nodejs'
   | 'python'
@@ -74,6 +93,10 @@ export type Topic =
   | 'tailwindcss'
   | 'swc'
   | 'nextjs'
+  | 'reactjs'
+  | 'react-query'
+  | 'redux'
+  | 'jwt'
 
 export interface BadgeProps {
   topic: Topic | string
